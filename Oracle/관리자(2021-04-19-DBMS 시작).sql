@@ -4,7 +4,7 @@
 -- 단, 키워드는 대문자, 변수 등은 소문자로 사용할 예정
 -- 코드는 여러줄에 걸쳐 작성할 수 있다.
 -- 코드는 끝에 반드시 세미콜론(;)이 있어야 한다.
--- 코드에 세미콜론을 빼먹으면 명령문 뭄법오류가 발생한다.
+-- 코드에 세미콜론을 빼먹으면 명령문 문법오류가 발생한다.
 
 -- 1. 데이터 저장소를 생성하기
 --  oracle에서는 데이터 저장소를 파일 단위로 관리한다.
@@ -72,4 +72,14 @@ DEFAULT TABLESPACE mydb;
 -- 아무런 권한도 부여되지 않은 상태이다.
 -- 심지어 접속(login) 자체가 되지 않는다.
 
+CREATE TABLESPACE schoolDB
+DATAFILE 'C:/oraclexe/data/school.dbf'
+SIZE 1M AUTOEXTEND ON NEXT 1K;
 
+DROP TABLESPACE schoolDB
+INCLUDING CONTENTS AND DATAFILES
+CASCADE CONSTRAINTS;
+
+CREATE TABLESPACE schoolDB
+DATAFILE 'C:/oraclexe/data/school.dbf'
+SIZE 1M AUTOEXTEND ON NEXT 1K;
